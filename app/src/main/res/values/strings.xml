@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ApexBoost Game Engine</string>
+    <string name="nav_dashboard">Engine</string>
+    <string name="nav_tuner">Tuner</string>
+    <string name="nav_games">Games</string>
+    <string name="nav_overlays">Overlays</string>
+    <string name="nav_permissions">Permissions</string>
+    <string name="shizuku_connected">CONNECTED</string>
+    <string name="shizuku_not_connected">NOT CONNECTED</string>
+    <string name="status_not_supported">Not supported on this device</string>
+    <string name="status_permission_required">Permission required</string>
+    <string name="touch_sampling_notice">Hardware touch sampling cannot be changed by this app.</string>
+    <string name="window_blur_unsupported">Window blur control is not supported on this device.</string>
+    <string name="dev_options_unsupported">Android does not allow this operation on this device.</string>
+    <string name="game_mode_unavailable">Game Mode API unavailable.</string>
+</resources>

@@ -1,0 +1,6 @@
+{
+  "name": "ApexBoost Game Engine",
+  "description": "Real Android Game Booster, Shizuku ADB Shell Executor, Hardware Telemetry, and Per-Game Profile Optimizer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
