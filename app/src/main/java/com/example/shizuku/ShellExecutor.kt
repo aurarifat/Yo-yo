@@ -259,8 +259,19 @@ object ShellExecutor {
             stdoutThread.start()
             stderrThread.start()
 
-            val completed = remoteProcess.waitFor(timeoutSeconds, TimeUnit.SECONDS)
-            if (!completed) {
+            var exited = false
+            var processExitCode = -1
+            val waitThread = Thread {
+                try {
+                    processExitCode = remoteProcess.waitFor()
+                    exited = true
+                } catch (_: Throwable) {
+                }
+            }
+            waitThread.start()
+            waitThread.join(timeoutSeconds * 1000L)
+
+            if (!exited) {
                 remoteProcess.destroy()
                 return ShellExecutionResult(
                     status = OperationStatus.FAILED,
@@ -275,7 +286,7 @@ object ShellExecutor {
             stdoutThread.join(1000)
             stderrThread.join(1000)
 
-            val exitCode = remoteProcess.exitValue()
+            val exitCode = processExitCode
             val stdout = stdoutBuilder.toString().trim()
             val stderr = stderrBuilder.toString().trim()
 

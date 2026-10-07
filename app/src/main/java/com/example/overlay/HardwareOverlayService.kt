@@ -261,9 +261,9 @@ class HardwareOverlayService : Service() {
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     private fun ensureOrUpdateMonitorView(
         config: HardwareMonitorConfig,
-        snap: com.example.telemetry.DeviceTelemetryProvider.Companion? = null
+        snap: com.example.telemetry.DeviceTelemetrySnapshot? = null
     ) {
-        val telemetry = telemetryProvider.snapshot.value
+        val telemetry = snap ?: telemetryProvider.snapshot.value
         val overlayType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
         } else {
